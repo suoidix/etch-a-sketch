@@ -10,8 +10,7 @@ let gridSizePlus = parseInt(gridInt) + 1;
 
 createGrid();
 
-
-//create 16x16 grid
+//create dynamic grid
 function createGrid(){
     for (i = 0; i < (gridSize); i++) {
         const div = document.createElement('div');
@@ -28,4 +27,3 @@ function createGrid(){
     styleSheet.innerText = boxStyle
     document.head.appendChild(styleSheet)
 }
-
