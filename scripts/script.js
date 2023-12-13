@@ -2,28 +2,52 @@
 
 //container for grid
 const container = document.querySelector(".container");
+const styles = document.querySelector(".styles");
+const grid = document.querySelector(".grid");
+const enterGridSize = document.querySelector(".enter");
+//styleSheet = document.createElement("style");
+let count = 0;
 
-let input = prompt ("Chose grid space!");
-let gridInt = parseInt(input);
-let gridSize = (gridInt*gridInt) + gridInt;
-let gridSizePlus = parseInt(gridInt) + 1;
-
-createGrid();
+resetInput();
 
 //create dynamic grid
-function createGrid(){
-    for (i = 0; i < (gridSize); i++) {
-        const div = document.createElement('div');
+function createGrid(gridSize, gridSizePlus){
+    for (let i = 0; i < (gridSize); i++) {
+        div = document.createElement('div');
         div.id = 'box';
         container.appendChild(div);
     }
-    const boxStyle = `
+    boxStyle = `
         .container>div:nth-child(${gridSizePlus}n + 1) {
             width: 100%;
             border: 0;
             height: 0;
           }`
-    const styleSheet = document.createElement("style");
-    styleSheet.innerText = boxStyle
-    document.head.appendChild(styleSheet)
+    styleSheet = document.createElement("style");
+    styleSheet.id = 'style';
+    styleSheet.innerText = boxStyle;
+    grid.appendChild(styleSheet);
 }
+
+function getVal() {
+    container.innerHTML = "";
+
+    input = parseInt(document.querySelector('input').value);
+    gridSize = (input*input) + input;
+    gridSizePlus = (input) + 1;
+    console.log(input);
+    if (input > 0 && input < 20) { 
+        createGrid(gridSize, gridSizePlus);
+    }
+  }
+
+function resetInput() {
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild)
+    }
+    getVal();
+  } 
+
+enterGridSize.addEventListener('click', function () {
+    resetInput();
+});
