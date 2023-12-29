@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="scripts/script.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Etch-A-Sketch</title>
     <styles id="'style"></styles>
 </head>
 <body>
-    <div class="container"></div>
-    <div class ="grid"></div>
-    <form id="input">
-        <label id="grid">Enter a grid size (42 squares max)</label><br>
-        <input type="text" id="textField" name="grid" required minlength="2" maxlength="2" size="2"/>
-        <button class="enter" onclick ="getVal();">Enter</button>
-    </form>
-    
+    <div class="top">
+        <h1>Etch-A-Sketch</h1>
+    </div>
+    <div class="container">
+        <div class ="grid"></div>
+    </div>
+    <div class="bottom">
+        <form id="input">
+            <br>
+            <label id="gridSize">Enter a grid size (256 squares max)</label>
+            <br><br>
+            <input type="number" id="textField" name="grid" required minlength="1" maxlength="3" size="3"/>
+            <button class="reset" onclick ="getVal();">Reset</button>
+        </form>
+    </div>
 </body>
 </html>
