@@ -2,52 +2,36 @@
 
 //container for grid
 const container = document.querySelector(".container");
-const styles = document.querySelector(".styles");
-const grid = document.querySelector(".grid");
-const enterGridSize = document.querySelector(".enter");
-//styleSheet = document.createElement("style");
-let count = 0;
+const userInput = document.querySelector("textField");
+const resetButton = document.querySelector(".reset");
+let gridSize = 16;
 
-resetInput();
-
-//create dynamic grid
-function createGrid(gridSize, gridSizePlus){
-    for (let i = 0; i < (gridSize); i++) {
-        div = document.createElement('div');
-        div.id = 'box';
-        container.appendChild(div);
+createGrid = () => {
+    for (let i = 0; i < 256; i++) {
+        const div = document.createElement("div");
+        div.classList.add("square");
+        gridSize.appendChild(div);
     }
-    boxStyle = `
-        .container>div:nth-child(${gridSizePlus}n + 1) {
-            width: 100%;
-            border: 0;
-            height: 0;
-          }`
-    styleSheet = document.createElement("style");
-    styleSheet.id = 'style';
-    styleSheet.innerText = boxStyle;
-    grid.appendChild(styleSheet);
-}
+};
 
-function getVal() {
-    container.innerHTML = "";
-
-    input = parseInt(document.querySelector('input').value);
-    gridSize = (input*input) + input;
-    gridSizePlus = (input) + 1;
-    console.log(input);
-    if (input > 0 && input < 20) { 
-        createGrid(gridSize, gridSizePlus);
+updateGrid = () => {
+    gridSize.innterHTML = "";
+    grid.style.setProperty(
+        "grid-template-columns",
+        `repeat(${userInput.value}, 2fr)`
+    );
+    grid.style.setProperty(
+        "grid-template-rows",
+        `repeat(${userInput.value}, 2fr)`
+    );
+    for (let i = 0; i < userInput.value * userInput.value; i++) {
+        const div = document.createElement("div");
+        div.classList.add("square");
+        grid.appendChild(div);
     }
-  }
+    console.log(userInput.value);
+};
 
-function resetInput() {
-    while (grid.firstChild) {
-        grid.removeChild(grid.lastChild)
-    }
-    getVal();
-  } 
 
-enterGridSize.addEventListener('click', function () {
-    resetInput();
-});
+
+createGrid();
