@@ -32,6 +32,9 @@ updateGrid = () => {
     console.log(userInput.value);
 };
 
-
+const square = document.querySelector("div");
+square.addEventListener('mouseover', function(event){
+    event.target.classList.replace("square", "color");
+});
 
 createGrid();
