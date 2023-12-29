@@ -15,7 +15,7 @@ createGrid = () => {
 };
 
 updateGrid = () => {
-    gridSize.innterHTML = "";
+    gridSize.innerHTML = "";
     grid.style.setProperty(
         "grid-template-columns",
         `repeat(${userInput.value}, 2fr)`
@@ -36,5 +36,7 @@ const square = document.querySelector("div");
 square.addEventListener('mouseover', function(event){
     event.target.classList.replace("square", "color");
 });
+
+userInput.addEventListener("change", updateGrid);
 
 createGrid();
