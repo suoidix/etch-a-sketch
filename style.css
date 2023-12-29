@@ -21,6 +21,11 @@ html {
   border: 1px solid black;
 }
 
+.color {
+  background-color: gray;
+  border: 1px solid black;
+}
+
 .container {
   margin-top: 25px;
   margin-right: 40px;
