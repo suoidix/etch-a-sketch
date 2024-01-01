@@ -33,15 +33,6 @@ updateGrid = () => {
     console.log(userInput.value);
 };
 
-
-//not working revisit to fix mouseover
-function backgroundColor() {
-    const square = document.querySelector("div");
-    square.addEventListener("mouseover", function() {
-        square.style.backgroundColor = "gray";
-});
-};
-
 userInput.addEventListener("change", updateGrid);
 
 resetButton.addEventListener("click", function(){
