@@ -16,13 +16,16 @@
         <div class ="grid"></div>
     </div>
     <div class="bottom">
-        <form id="input">
             <br>
             <label id="gridSize">Enter a grid size (256 squares max)</label>
             <br><br>
-            <input type="number" id="textField" name="grid" required minlength="1" maxlength="3" size="3"/>
+            <p id="message"></p>
+            <br><br>
+            <input type="number" id="textField" name="grid" minlength="1" maxlength="3" max="40" required/>
+            <br><br>
+            <button class="random" onclick ="backgroundColor();">Random</button>
+            <button class="black" onclick ="">Black</button>
             <button class="reset" onclick ="getVal();">Reset</button>
-        </form>
     </div>
 </body>
 </html>
