@@ -5,29 +5,21 @@ const grid = document.querySelector(".container");
 const userInput = document.getElementById("textField");
 const resetButton = document.querySelector(".reset");
 let gridSize = 16;
+let gridArea = 256;
 
 resetGrid();
 createGrid();
 
 function createGrid() {
     document.addEventListener("DOMContentLoaded", function(){
-        gridTemplate();
+        gridTemplate(gridSize, gridArea);
     })
 };
 
 function updateGrid() {
-    grid.innerHTML = "";
-    let size = userInput.value * userInput.value;
-    grid.style.setProperty("grid-template-columns", `repeat(${userInput.value}, 1fr)`);
-    grid.style.setProperty("grid-template-rows", `repeat(${userInput.value}, 1fr)`);
-    for (let i = 0; i < size; i++) {
-        const div = document.createElement("div");
-        div.classList.add("square");
-        grid.appendChild(div);
-        div.addEventListener("mouseover", function() {
-            div.style.backgroundColor = "gray";
-        })
-    }
+    let gridSize = userInput.value;
+    let gridArea = userInput.value * userInput.value;
+    gridTemplate(gridSize, gridArea);
     console.log(userInput.value);
 };
 
@@ -35,16 +27,15 @@ userInput.addEventListener("change", updateGrid);
 
 function resetGrid () {
     resetButton.addEventListener("click", function(){
-        gridTemplate();
+        gridTemplate(gridSize, gridArea);
 });
 };
 
-function gridTemplate () {
+function gridTemplate (gridSize, gridArea) {
     grid.innerHTML = "";
-    userInput.value = "";
-    grid.style.setProperty("grid-template-columns", `repeat(16, 1fr)`);
-    grid.style.setProperty("grid-template-rows", `repeat(16, 1fr)`);
-    for (let i = 0; i < 256; i++) {
+    grid.style.setProperty("grid-template-columns", `repeat(${gridSize}, 1fr)`);
+    grid.style.setProperty("grid-template-rows", `repeat(${gridSize}, 1fr)`);
+    for (let i = 0; i < gridArea; i++) {
         const div = document.createElement("div");
         div.classList.add("square");
         grid.appendChild(div);
