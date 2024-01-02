@@ -15,17 +15,19 @@
     <div class="container">
         <div class ="grid"></div>
     </div>
-    <div class="bottom">
-            <br>
-            <label id="gridSize">Enter a grid size (256 squares max)</label>
-            <br><br>
-            <p id="message"></p>
-            <br><br>
-            <input type="number" id="textField" name="grid" minlength="1" maxlength="3" max="40" required/>
-            <br><br>
-            <button class="random" onclick ="backgroundColor();">Random</button>
-            <button class="black" onclick ="">Black</button>
-            <button class="reset" onclick ="createGrid();">Reset</button>
+    <div class="label">
+        <br>
+        <label id="gridSize">Enter a grid size (256 squares max)</label>
+        <p id="message">Place Holder</p>
+    </div>
+    <div class="userInput">
+        <input type="number" id="textField" name="grid" minlength="1" maxlength="3" max="40" required/>
+    </div>
+    <br>
+    <div class ="buttons">
+        <button class="random" onclick ="backgroundColor();">Random</button>
+        <button class="black" onclick ="">Black</button>
+        <button class="reset" onclick ="createGrid();">Reset</button>
     </div>
 </body>
 </html>
