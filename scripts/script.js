@@ -7,8 +7,8 @@ const resetButton = document.querySelector(".reset");
 let gridSize = 16;
 let gridArea = parseInt(gridSize * gridSize);
 
-resetGrid();
 createGrid();
+resetGrid();
 
 function createGrid() {
     document.addEventListener("DOMContentLoaded", function(){
@@ -23,6 +23,7 @@ function updateGrid() {
     console.log(userInput.value);
 };
 
+//Apply user input based on change to input field
 userInput.addEventListener("change", updateGrid);
 
 function resetGrid () {
@@ -31,6 +32,7 @@ function resetGrid () {
 });
 };
 
+//Apply grid template
 function gridTemplate (gridSize, gridArea) {
     grid.innerHTML = "";
     grid.style.setProperty("grid-template-columns", `repeat(${gridSize}, 1fr)`);
