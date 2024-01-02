@@ -4,8 +4,9 @@
 const grid = document.querySelector(".container");
 const userInput = document.getElementById("textField");
 const resetButton = document.querySelector(".reset");
+let click = false;
 let gridSize = 16;
-let gridArea = parseInt(gridSize * gridSize);
+let gridArea = gridSize * gridSize;
 
 createGrid();
 resetGrid();
@@ -18,7 +19,7 @@ function createGrid() {
 
 function updateGrid() {
     let gridSize = userInput.value;
-    let gridArea = userInput.value * userInput.value;
+    let gridArea = gridSize * gridSize;
     gridTemplate(gridSize, gridArea);
     console.log(userInput.value);
 };
@@ -41,8 +42,27 @@ function gridTemplate (gridSize, gridArea) {
         const div = document.createElement("div");
         div.classList.add("square");
         grid.appendChild(div);
-        div.addEventListener("mouseover", function() {
-            div.style.backgroundColor = "gray";
+        document.querySelector(".container").addEventListener("click", function(e) {
+            if(e.target.tagName != "BUTTON") {
+                click = !click;
+                    div.addEventListener("mouseover", function() {
+                        if(click){
+                            div.style.backgroundColor = "gray";
+                        }
+                    })
+            }
         })
+        
     }
 };
+
+
+//pseudocode for applyColor
+function applyColor () {
+    //if grey clicked
+     //div background = grey
+    //elseif random clicked
+     //div background = random
+    //else
+      //div background = grey
+}
