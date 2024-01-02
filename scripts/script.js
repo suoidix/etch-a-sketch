@@ -5,7 +5,7 @@ const grid = document.querySelector(".container");
 const userInput = document.getElementById("textField");
 const resetButton = document.querySelector(".reset");
 let gridSize = 16;
-let gridArea = 256;
+let gridArea = parseInt(gridSize * gridSize);
 
 resetGrid();
 createGrid();
