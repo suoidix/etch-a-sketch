@@ -1,17 +1,17 @@
 html {
+  display: flex;
   text-align: center;
+  justify-content: center;
   font-family: 'Courier New', Courier, monospace;
 }
 
 .top {
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
 .bottom {
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -27,7 +27,6 @@ html {
 }
 
 .container {
-  display: flex;
   margin-top: 25px;
   margin-right: 40px;
   display: inline-grid;
@@ -37,4 +36,9 @@ html {
   border-radius: 1px;
   height: 500px;
   width: 500px;
+}
+
+.buttons {
+  align-items: center;
+  justify-content: center;
 }
