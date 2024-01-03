@@ -6,8 +6,9 @@ const userInput = document.getElementById("textField");
 const resetButton = document.querySelector(".reset");
 const greyColor = document.querySelector(".grey");
 const randomColor = document.querySelector(".random");
-let divColor = "";
-let click = false;
+let divColor = "grey";
+let div = document.querySelector(".square");
+let drawToggle = false;
 let gridSize = 16;
 let gridArea = gridSize * gridSize;
 
@@ -43,32 +44,22 @@ function gridTemplate (gridSize, gridArea) {
     grid.style.setProperty("grid-template-rows", `repeat(${gridSize}, 1fr)`);
     for (let i = 0; i < gridArea; i++) {
         const div = document.createElement("div");
-        div.classList.add(".square");
+        div.classList.add("square");
         grid.appendChild(div);
         grid.addEventListener("click", function(e) {
             div.addEventListener("mouseover", function() {
-                div.style.backgroundColor = `${divColor}`;   
-                })
+                if (drawToggle) {
+                    div.style.backgroundColor = `${divColor}`; 
+                }
+
             })
-        }
-    };
-
-function toggleColor() {
-    const squares = document.querySelectorAll(".square");
-
-    if(!click) {
-        squares.forEach((square) => {
-            square.addEventListener("mouseleave", colorChoice);
-        });
-        click = true;
-    } else {
-        squares.forEach((square) => {
-            square.removeEventListener("mouseleave", colorChoice);
-        });
-        click = false;
+        })
     }
-}
+};
 
+grid.addEventListener("click", function() {
+    drawToggle = !drawToggle;
+});
 
 greyColor.addEventListener("click", function () {
     divColor = "grey";
@@ -77,10 +68,3 @@ greyColor.addEventListener("click", function () {
 randomColor.addEventListener("click", function () {
     divColor = `hsl(${Math.random() * 360}, 100%, 50%)`
 });
-
-function colorChoice(e) {
-    switch(divColor) {
-        case "random":
-            let random = 
-    }
-}
