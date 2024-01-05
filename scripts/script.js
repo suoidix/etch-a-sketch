@@ -9,6 +9,8 @@ const randomColor = document.querySelector(".random");
 let divColor = "grey";
 let div = document.querySelector(".square");
 let drawToggle = false;
+let defaultColor = false;
+let rainbow = false;
 let gridSize = 16;
 let gridArea = gridSize * gridSize;
 
@@ -46,14 +48,15 @@ function gridTemplate (gridSize, gridArea) {
         const div = document.createElement("div");
         div.classList.add("square");
         grid.appendChild(div);
-        grid.addEventListener("click", function(e) {
             div.addEventListener("mouseover", function() {
-                if (drawToggle) {
-                    div.style.backgroundColor = `${divColor}`; 
+                if (drawToggle && rainbow) {
+                    div.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
                 }
-
+                else if (drawToggle && defaultColor) {
+                    div.style.backgroundColor = "grey";
+                }
             })
-        })
+        
     }
 };
 
@@ -63,8 +66,16 @@ grid.addEventListener("click", function() {
 
 greyColor.addEventListener("click", function () {
     divColor = "grey";
+    defaultColor = !defaultColor;
+    if (rainbow = rainbow) {
+        rainbow = !rainbow
+    }
 });
 
 randomColor.addEventListener("click", function () {
     divColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+    rainbow = !rainbow;
+    if (defaultColor = defaultColor) {
+        defaultColor = !defaultColor
+    }
 });
