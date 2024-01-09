@@ -43,10 +43,6 @@ html {
   justify-content: center;
 }
 
-.grey {
-  background-color: lightgrey;
-}
-
-.random {
+.grey, .random, .reset {
   background-color: lightgrey;
 }
