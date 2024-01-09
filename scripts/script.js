@@ -2,7 +2,7 @@
 
 //container for grid
 const grid = document.querySelector(".container");
-const userInput = document.getElementById("textField");
+const userInput = document.getElementById("slider");
 const resetButton = document.querySelector(".reset");
 const greyColor = document.querySelector(".grey");
 const randomColor = document.querySelector(".random");
@@ -56,7 +56,6 @@ function gridTemplate (gridSize, gridArea) {
                     div.style.backgroundColor = "grey";
                 }
             })
-        
     }
 };
 
@@ -65,17 +64,29 @@ grid.addEventListener("click", function() {
 });
 
 greyColor.addEventListener("click", function () {
-    divColor = "grey";
     defaultColor = !defaultColor;
+    randomColor.style.background ='lightgrey';//
     if (rainbow = rainbow) {
         rainbow = !rainbow
+    }
+    if (defaultColor = defaultColor) {
+        greyColor.style.background = 'lime';
+    }
+    else {
+        greyColor.style.background = 'lightgrey';
     }
 });
 
 randomColor.addEventListener("click", function () {
-    divColor = `hsl(${Math.random() * 360}, 100%, 50%)`
     rainbow = !rainbow;
+    greyColor.style.background = 'lightgrey';//
     if (defaultColor = defaultColor) {
         defaultColor = !defaultColor
+    }
+    if (rainbow = rainbow) {
+        randomColor.style.background = 'lime';
+    }
+    else {
+        randomColor.style.background = 'lightgrey';
     }
 });
