@@ -42,3 +42,11 @@ html {
   align-items: center;
   justify-content: center;
 }
+
+.grey {
+  background-color: lightgrey;
+}
+
+.random {
+  background-color: lightgrey;
+}
