@@ -65,7 +65,7 @@ grid.addEventListener("click", function() {
 
 greyColor.addEventListener("click", function () {
     defaultColor = !defaultColor;
-    randomColor.style.background ='lightgrey';//
+    randomColor.style.background ='lightgrey';
     if (rainbow = rainbow) {
         rainbow = !rainbow
     }
@@ -79,7 +79,7 @@ greyColor.addEventListener("click", function () {
 
 randomColor.addEventListener("click", function () {
     rainbow = !rainbow;
-    greyColor.style.background = 'lightgrey';//
+    greyColor.style.background = 'lightgrey';
     if (defaultColor = defaultColor) {
         defaultColor = !defaultColor
     }
